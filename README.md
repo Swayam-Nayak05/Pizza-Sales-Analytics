@@ -3,10 +3,10 @@
 
 This project uses SQL to analyze data related to pizza sales. The aim is to uncover valuable insights that can help a pizza business make informed decisions. The database conssists of 4 tables : pizzas, pizza_types,
 orders, order_details. Attributes/features of these tables are :-
-pizzas- pizza_id, pizza_type_id, size, price
-pizzas_type- pizza_type_id, name, category, ingredients
-orders- order_id, order_date, order_time
-order_details- order_details_id, order_id, pizza_id, quantity
+1) pizzas- pizza_id, pizza_type_id, size, price
+2) pizzas_type- pizza_type_id, name, category, ingredients
+3) orders- order_id, order_date, order_time
+4) order_details- order_details_id, order_id, pizza_id, quantity
 
 
 Multiple querying and complex operations are perfomed on the database/tables including:-
