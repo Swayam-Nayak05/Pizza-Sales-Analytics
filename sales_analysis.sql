@@ -78,7 +78,7 @@ group by orders.order_date) as order_quantity;
 
 
 
- -- 9) The top 3 most ordered pizza types based on revenue.
+ -- 10) The top 3 most ordered pizza types based on revenue.
 Select pizza_types.name , SUM(order_details.quantity*pizzas.price) as revenue from
 pizza_types JOIN pizzas
 on pizza_types.pizza_type_id = pizzas.pizza_type_id
@@ -89,7 +89,7 @@ order by revenue desc
 LIMIT 3;
 
 
--- 10) Percentage contribution of each pizza type to total revenue.
+-- 11) Percentage contribution of each pizza type to total revenue.
 SELECT 
     pizza_types.category,
   ROUND(SUM(order_details.quantity * pizzas.price) / (SELECT 
@@ -110,7 +110,7 @@ ORDER BY revenue DESC;
 
 
 
--- 11) Analyzing the cumulative revenue generated over time.
+-- 12) Analyzing the cumulative revenue generated over time.
 Select order_date, sum(revenue) over (order by order_date) as cumm_revenue
 from 
 (Select orders.order_date ,sum(order_details.quantity* pizzas.price) as revenue
@@ -122,7 +122,7 @@ group by orders.order_date) as sales;
 
 
 
--- 12) The top 3 most ordered pizza types based on revenue for each pizza category.
+-- 13) The top 3 most ordered pizza types based on revenue for each pizza category.
 Select name,revenue from 
 (Select category,name,revenue,
 rank() over (partition by category order by revenue desc) as rn from
